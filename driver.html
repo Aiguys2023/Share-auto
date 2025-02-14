@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Details</title>
+    <script defer src="app.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+        }
+
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.5);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            position: relative;
+            background: linear-gradient(45deg, rgba(255, 0, 255, 0.7), rgba(255, 200, 0, 0.7));
+            padding: 10px;
+            border-radius: 12px;
+            display: inline-block;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0 0 12px rgba(255, 0, 255, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            animation: pulseGlow 2s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            from { box-shadow: 0 0 10px rgba(255, 0, 255, 0.6); }
+            to { box-shadow: 0 0 20px rgba(255, 0, 255, 0.9); }
+        }
+
+        .container {
+            margin-top: 50px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .form-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 0 12px rgba(255, 0, 255, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-container label, input {
+            display: block;
+            margin: 10px auto;
+            width: 80%;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background: linear-gradient(45deg, rgba(255, 0, 255, 0.7), rgba(255, 200, 0, 0.7));
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            box-shadow: 0 0 12px rgba(255, 0, 255, 0.7);
+            animation: pulseGlow 2s infinite alternate;
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, rgba(255, 200, 0, 0.9), rgba(255, 0, 255, 0.9));
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted class="video-bg">
+        <source src="background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <h1>Driver Details</h1>
+    <div class="container">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="payment.html">Payment Methods</a>
+            <a href="rent.html">Rent Details</a>
+            <a href="track.html">Destination Tracking</a>
+            <a href="vehicle.html">Vehicle Details</a>
+        </nav>
+        <br><br>
+        <div class="form-container">
+            <h2>Enter Driver Information</h2>
+            <form>
+                <label for="driver-name">Driver Name:</label>
+                <input type="text" id="driver-name" name="driver-name" required>
+                
+                <label for="driver-id">Driver ID:</label>
+                <input type="text" id="driver-id" name="driver-id" required>
+                
+                <button type="submit" class="btn">Save</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

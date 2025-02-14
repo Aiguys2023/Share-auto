@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Methods</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Rajdhani:wght@300;400;600&display=swap');
+        
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            font-family: 'Orbitron', sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            background: linear-gradient(45deg, rgba(255, 0, 255, 0.7), rgba(255, 200, 0, 0.7));
+            padding: 15px;
+            border-radius: 12px;
+            display: inline-block;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0 0 12px rgba(255, 0, 255, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #ffeb00;
+            transform: scale(1.1);
+        }
+
+        section {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        ul li:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>Payment Methods</h1>
+    <nav>
+        <a href="index.html">Home</a>
+    </nav>
+    <section>
+        <h2>Available Payment Options</h2>
+        <ul>
+            <li>Cash</li>
+            <li>Credit/Debit Card</li>
+            <li>UPI</li>
+            <li>Mobile Wallet</li>
+        </ul>
+    </section>
+</body>
+</html>

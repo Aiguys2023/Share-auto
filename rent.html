@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: url('rickshaw.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 12px;
+            display: inline-block;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #ffeb00;
+            transform: scale(1.1);
+        }
+
+        section {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            animation: slideIn 1.5s ease-in-out;
+            position: relative;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .price-box {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .price {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            width: 40%;
+            text-align: center;
+        }
+
+        .price:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>Rent Details</h1>
+    <nav>
+        <a href="index.html">Home</a>
+    </nav>
+    <section>
+        <h2>Rental Pricing</h2>
+        <div class="price-box">
+            <div class="price">Daily Rent: $10</div>
+            <div class="price">Weekly Rent: $60</div>
+            <div class="price">Monthly Rent: $200</div>
+        </div>
+    </section>
+</body>
+</html>

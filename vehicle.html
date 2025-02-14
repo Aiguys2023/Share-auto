@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: url('DALL·E 2025-02-13 20.36.26 - A highly detailed digital painting of a legendary Indian superstar inspired by Rajinikanth, driving a traditional yellow and black auto-rickshaw. The .webp') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 12px;
+            display: inline-block;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            animation: neonGlow 1.5s infinite alternate;
+        }
+
+        @keyframes neonGlow {
+            from { text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff4500; }
+            to { text-shadow: 0 0 15px #fff, 0 0 25px #ff00ff, 0 0 35px #ff4500; }
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #ffeb00;
+            transform: scale(1.1);
+            text-shadow: 0 0 10px #ffeb00;
+        }
+
+        section {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label, input {
+            display: block;
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            width: 80%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+
+        button {
+            background-color: rgba(255, 235, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 0 10px rgba(255, 235, 0, 0.8);
+        }
+
+        button:hover {
+            background-color: rgba(255, 235, 0, 1);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 235, 0, 1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Vehicle Details</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="payment.html">Payment Methods</a>
+        <a href="driver.html">Driver Details</a>
+        <a href="rent.html">Rent Details</a>
+        <a href="tracking.html">Destination Tracking</a>
+    </nav>
+    <section>
+        <h2>Enter Vehicle Information</h2>
+        <form>
+            <label for="vehicle-number">Vehicle Number:</label>
+            <input type="text" id="vehicle-number" name="vehicle-number" required>
+            
+            <label for="vehicle-model">Vehicle Model:</label>
+            <input type="text" id="vehicle-model" name="vehicle-model" required>
+            
+            <button type="submit">Save</button>
+        </form>
+    </section>
+</body>
+</html>

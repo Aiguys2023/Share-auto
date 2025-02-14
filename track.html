@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination Tracking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: url('Screenshot 2025-02-13 113207.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 12px;
+            display: inline-block;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #ffeb00;
+            transform: scale(1.1);
+        }
+
+        section {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            animation: slideIn 1.5s ease-in-out;
+            position: relative;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        input, button {
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #ffeb00;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background-color: #ffd700;
+            transform: scale(1.1);
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>Destination Tracking</h1>
+    <nav>
+        <a href="index.html">Home</a>
+    </nav>
+    <section>
+        <h2>Track Your Destination</h2>
+        <input type="text" id="destination" placeholder="Enter Destination">
+        <button onclick="trackDestination()">Track</button>
+        <p id="tracking-info"></p>
+        <div id="map"></div>
+    </section>
+    <script>
+        let map = L.map('map').setView([28.6139, 77.2090], 12);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        function trackDestination() {
+            let destination = document.getElementById("destination").value;
+            if (!destination) {
+                alert("Please enter a valid destination.");
+                return;
+            }
+            
+            navigator.geolocation.getCurrentPosition((position) => {
+                let userLocation = [position.coords.latitude, position.coords.longitude];
+                let marker = L.marker(userLocation).addTo(map).bindPopup("Your Location").openPopup();
+                
+                fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${destination}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.length > 0) {
+                            let destCoords = [data[0].lat, data[0].lon];
+                            L.marker(destCoords).addTo(map).bindPopup("Destination: " + destination).openPopup();
+                            map.setView(destCoords, 12);
+                        } else {
+                            alert("Destination not found. Please try again.");
+                        }
+                    })
+                    .catch(error => alert("Error finding destination."));
+            }, () => {
+                alert("Could not access your location. Ensure GPS is enabled.");
+            });
+        }
+    </script>
+</body>
+</html>
